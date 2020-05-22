@@ -1,5 +1,5 @@
 mybatis:
   generator:
-    overwrite: true # java文件生成时，是否覆盖，默认false。注意：MBG总是合并和覆盖xml文件，和这个配置无关
+    overwrite: true # java文件生成时 ，是否覆盖，默认false。注意：MBG总是合并和覆盖xml文件，和这个配置无关
     configurationFile: src/main/resources/mybatis/generatorConfig-link.xml
     tableNames: tb_note_new,tb_alarm_rule
