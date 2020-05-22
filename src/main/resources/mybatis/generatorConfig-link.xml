@@ -14,7 +14,7 @@
 
         <!--注释-->
         <commentGenerator type="customize.ChaosCommentGenerator">
-            <!--排除注释中的生成日期-->
+            <!--排除注释中的生成日期 -->
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="false"/>
             <!--增加数据库中的字段备注信息-->
