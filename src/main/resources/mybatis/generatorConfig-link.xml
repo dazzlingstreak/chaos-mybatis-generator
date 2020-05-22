@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/huangdawei/.m2/repository/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar"/>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+
+        <!-- 内容格式：(property*,plugin*,commentGenerator?,(connectionFactory|jdbcConnection),javaTypeResolver?,javaModelGenerator,sqlMapGenerator?,javaClientGenerator?,table+)-->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <!--注释-->
+        <commentGenerator type="customize.ChaosCommentGenerator">
+            <!--排除注释中的生成日期-->
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="false"/>
+            <!--增加数据库中的字段备注信息-->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库配置-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://test.mysql.apitops.com:4310/tops_link"
+                        userId="root"
+                        password="root12qw!@QW">
+        </jdbcConnection>
+
+        <!--java类型转换处理-->
+        <!--type:自定义类型转换处理，主要是把tinyint类型的映射到类中处理为Integer-->
+        <!--forceBigDecimals:针对数据库字段类型是decimal/numeric类型的，是否用BigDecimal类型接收，false的时候，会根据数据长度调节，看是BigDecimal/Long/Integer/Short-->
+        <!--useJSR310Types:针对 DATE, TIME, and TIMESTAMP 的日期处理，true的话，则会使用LocalDate,LocalTime,LocalDateTime对应处理，false则都用Date类型-->
+        <javaTypeResolver type="customize.ChaosJavaTypeResolver">
+            <property name="forceBigDecimals" value="false"/>
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+        <!--java模型生成配置-->
+        <!--targetPackage 有个特殊值MAVEN，大小写敏感，如果设置这个值，则默认生成到maven的输出路径，target/..;也可以设置正常路径，如：src/mybatis,但是相应目录必须存在-->
+        <javaModelGenerator targetPackage="model" targetProject="src/mybatis">
+            <!--在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false-->
+            <property name="enableSubPackages" value="true"/>
+            <!--设置是否在setter方法中，对String类型字段调用trim()方法-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--映射文件生成配置-->
+        <sqlMapGenerator targetPackage="xml" targetProject="src/mybatis">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--Mapper生成，提供一些简单常用的mapper方法，可选项-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="src/mybatis">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 指定表-->
+        <table tableName="tb_alarm_rule" domainObjectName="AlarmRule" enableSelectByExample="false"
+               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
+               selectByExampleQueryId="false">
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+        </table>
+        <table tableName="tb_note_new" domainObjectName="NoteNew" enableSelectByExample="false"
+               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
+               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
+               selectByExampleQueryId="false">
+            <!--useActualColumnNames默认false，MBG会使用驼峰命名法定义java类的字段名，设置true时，使用数据库字段名作为java类的字段名-->
+            <property name="useActualColumnNames" value="false"/>
+            <!--指定主键是哪个，这样insert方法返回主键值，注意identity值是true，则是insert后的值，false则是insert之前的值，默认false-->
+            <!--常用的是useGeneratedKeys+keyProperty,这个看看怎么设置-->
+            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
+            <!--数据库字段映射类中属性字段，需要修改的自定义-->
+            <columnOverride column="note_id_old" property="oldNoteId"/>
+            <!--delimitedColumnName默认false，字段名大小写不敏感-->
+            <ignoreColumn column="sYs_time" delimitedColumnName="false"/>
+        </table>
+    </context>
+
+
+</generatorConfiguration>

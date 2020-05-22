@@ -1,0 +1,1858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.AlarmRuleMapper">
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="model.AlarmRule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="tenant_id" jdbcType="BIGINT" property="tenantId" />
+    <result column="alarm_type" jdbcType="TINYINT" property="alarmType" />
+    <result column="alarm_value" jdbcType="INTEGER" property="alarmValue" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="sys_time" jdbcType="TIMESTAMP" property="sysTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, tenant_id, alarm_type, alarm_value, is_deleted, create_time, sys_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_alarm_rule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule (tenant_id, alarm_type, alarm_value, 
+      is_deleted, create_time, sys_time
+      )
+    values (#{tenantId,jdbcType=BIGINT}, #{alarmType,jdbcType=TINYINT}, #{alarmValue,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{sysTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="model.AlarmRule" useGeneratedKeys="true">
+    insert into tb_alarm_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="alarmType != null">
+        alarm_type,
+      </if>
+      <if test="alarmValue != null">
+        alarm_value,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="sysTime != null">
+        sys_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    <set>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=BIGINT},
+      </if>
+      <if test="alarmType != null">
+        alarm_type = #{alarmType,jdbcType=TINYINT},
+      </if>
+      <if test="alarmValue != null">
+        alarm_value = #{alarmValue,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysTime != null">
+        sys_time = #{sysTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.AlarmRule">
+    update tb_alarm_rule
+    set tenant_id = #{tenantId,jdbcType=BIGINT},
+      alarm_type = #{alarmType,jdbcType=TINYINT},
+      alarm_value = #{alarmValue,jdbcType=INTEGER},
+      is_deleted = #{isDeleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      sys_time = #{sysTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
