@@ -55,20 +55,8 @@
         </javaClientGenerator>
 
         <!-- 指定表-->
-        <table tableName="tb_alarm_rule" domainObjectName="AlarmRule" enableSelectByExample="false"
-               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
-               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-        </table>
-        <table tableName="tb_project_management_todo" domainObjectName="ProjectManagementTodo" enableSelectByExample="false"
-               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
-               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-            <ignoreColumn column="sys_time" delimitedColumnName="false"/>
-        </table>
-        <table tableName="tb_note_new" domainObjectName="NoteNew" enableSelectByExample="false"
+
+        <table tableName="tb_house_second" domainObjectName="HouseSecond" enableSelectByExample="false"
                enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
                enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
                selectByExampleQueryId="false">
@@ -77,10 +65,8 @@
             <!--指定主键是哪个，这样insert方法返回主键值，注意identity值是true，则是insert后的值，false则是insert之前的值，默认false-->
             <!--常用的是useGeneratedKeys+keyProperty,这个看看怎么设置-->
             <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-            <!--数据库字段映射类中属性字段，需要修改的自定义-->
-            <columnOverride column="note_id_old" property="oldNoteId"/>
             <!--delimitedColumnName默认false，字段名大小写不敏感-->
-            <ignoreColumn column="sYs_time" delimitedColumnName="false"/>
+            <ignoreColumn column="sys_time" delimitedColumnName="false"/>
         </table>
     </context>
 
