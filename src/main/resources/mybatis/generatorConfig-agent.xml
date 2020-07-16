@@ -23,7 +23,7 @@
 
         <!--数据库配置-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://test.mysql.apitops.com:4310/tops_link"
+                        connectionURL="jdbc:mysql://test.mysql.apitops.com:4310/tops_agent_platform"
                         userId="root"
                         password="root12qw!@QW">
         </jdbcConnection>
@@ -55,20 +55,7 @@
         </javaClientGenerator>
 
         <!-- 指定表-->
-        <table tableName="tb_alarm_rule" domainObjectName="AlarmRule" enableSelectByExample="false"
-               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
-               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-        </table>
-        <table tableName="tb_project_management_todo" domainObjectName="ProjectManagementTodo" enableSelectByExample="false"
-               enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
-               enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
-               selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-            <ignoreColumn column="sys_time" delimitedColumnName="false"/>
-        </table>
-        <table tableName="tb_note_new" domainObjectName="NoteNew" enableSelectByExample="false"
+        <table tableName="tb_weixin_scene_store" domainObjectName="WeiXinSceneStore" enableSelectByExample="false"
                enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
                enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
                selectByExampleQueryId="false">
