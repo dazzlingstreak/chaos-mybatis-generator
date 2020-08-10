@@ -55,7 +55,7 @@
         </javaClientGenerator>
 
         <!-- 指定表-->
-        <table tableName="tb_broker_checkin" domainObjectName="BrokerCheckin" enableSelectByExample="false"
+        <table tableName="tb_broker_add_history" domainObjectName="BrokerAddHistory" enableSelectByExample="false"
                enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
                enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
                selectByExampleQueryId="false">
