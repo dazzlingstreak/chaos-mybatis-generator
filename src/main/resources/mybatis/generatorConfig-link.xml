@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry
-            location="/Users/huangdawei/.m2/repository/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar"/>
+<!--    <classPathEntry-->
+<!--            location="${localRepository}/mysql/mysql-connector-java/8.0.20/mysql-connector-java-8.0.20.jar"/>-->
 
     <context id="MysqlTables" targetRuntime="MyBatis3">
 
@@ -55,7 +55,7 @@
         </javaClientGenerator>
 
         <!-- 指定表-->
-        <table tableName="tb_alarm_rule" domainObjectName="AlarmRule" enableSelectByExample="false"
+        <table tableName="tb_note_template_new" domainObjectName="NoteTemplateNew" enableSelectByExample="false"
                enableDeleteByPrimaryKey="false" enableDeleteByExample="false"
                enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="false"
                selectByExampleQueryId="false">
