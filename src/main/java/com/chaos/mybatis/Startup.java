@@ -26,7 +26,7 @@ public class Startup {
 
         ConfigurableApplicationContext applicationContext = SpringApplication.run(ChaosMybatisGeneratorApplication.class, args);
 
-        //读取yml中配置来执行
+        //读取yml中配置来执行，内置变量
         String configFilePath = applicationContext.getEnvironment().getProperty("mybatis.generator.configurationFile");
         String overwrite = applicationContext.getEnvironment().getProperty("mybatis.generator.overwrite");
         boolean overwriteFlag = Optional.ofNullable(overwrite).orElse("true").equals("true");
